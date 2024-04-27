@@ -7,20 +7,22 @@ use App\Models\Settings;
 
 class SettingsController extends Controller
 {
-    public function saveSettings(Request $request)
+    private function saveSettingsToDatabase($request)
     {
         $request->validate([
             'title' => 'required',
             'copyright' => 'required',
         ]);
-
+    
         $setting = new Settings();
         $setting->title = $request->title;
         $setting->copyright = $request->copyright;
         $setting->save();
-
-        return redirect()->back()->with('success', 'Settings saved successfully.');
+    
+        return $setting;
     }
+
+
 
     public function getLatestSetting()
     {
@@ -35,4 +37,26 @@ class SettingsController extends Controller
 
         return view('dashboard', compact('latestSetting'));
     }
+    public function showConfiguration()
+    {
+        $latestSetting = $this->getLatestSetting();
+
+        return view('configure', compact('latestSetting'));
+    }
+
+
+  public function saveSettings(Request $request)
+{
+    $setting = $this->saveSettingsToDatabase($request);
+
+    return redirect()->back()->with('success', 'Settings saved successfully.');
+}
+
+public function saveConfiguration(Request $request)
+{
+    $setting = $this->saveSettingsToDatabase($request);
+
+    return redirect()->back()->with('success', 'Settings saved successfully.');
+}
+
 }
