@@ -41,20 +41,20 @@
                 {{-- main menu --}}
            
                 <li class="nav-item">
-                  <a href="pages/calendar.html" class="nav-link">
+                  <a href="/" class="nav-link">
                       <i class="nav-icon fa fa-home"></i>
                       <p>DashBoard
                       </p>
                   </a>
               </li>
               <li class="nav-item">
-                <a href="pages/calendar.html" class="nav-link">
+                <a href="/quizzes" class="nav-link">
                     <i class="nav-icon fa fa-question"></i>
                     <p>Manage Quizzes</p>
                 </a>
             </li>
             <li class="nav-item">
-              <a href="pages/calendar.html" class="nav-link">
+              <a href="/users" class="nav-link">
                   <i class="nav-icon far fa-user"></i>
                   <p>Manage Users
                   </p>
